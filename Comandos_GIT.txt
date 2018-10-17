@@ -1,0 +1,5 @@
+Push nueva rama
+	git push -u origin <branch>
+
+Renombrar rama
+	git branch -m old_branch_name new_branch_name

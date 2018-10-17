@@ -1,0 +1,116 @@
+{
+    "controlador": "/controlador",
+    "descripcion": " es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen",
+    "id": "Encuesta1",
+    "interna": true,
+    "metodo": "post",
+    "preguntas": [{
+            "id": "pregunta1",
+            "idEncuesta": "Encuesta1",
+            "metadata": {
+                "id": "input",
+                "tipo": "Input"
+            },
+            "pregunta": "Ingrese Su Nombre",
+            "requerido": true
+        },
+        {
+            "id": "pregunta2",
+            "idEncuesta": "Encuesta1",
+            "itempreguntas": [{
+                    "id": "bueno",
+                    "idpregunta": "pregunta2",
+                    "seleccionado": false,
+                    "valor": "Bueno"
+                },
+                {
+                    "id": "regular",
+                    "idpregunta": "pregunta2",
+                    "seleccionado": false,
+                    "valor": "Regular"
+                },
+                {
+                    "id": "malo",
+                    "idpregunta": "pregunta2",
+                    "seleccionado": false,
+                    "valor": "Malo"
+                }
+            ],
+            "metadata": {
+                "id": "select",
+                "tipo": "Select"
+            },
+            "pregunta": "Seleccione que tan satisfecho se encuentra con el sistema",
+            "requerido": true
+        },
+        {
+            "id": "pregunta3",
+            "idEncuesta": "Encuesta1",
+            "metadata": {
+                "id": "textarea",
+                "tipo": "TextArea"
+            },
+            "pregunta": "Que piensa del sistema de encuestas",
+            "requerido": false
+        },
+        {
+            "id": "pregunta4",
+            "idEncuesta": "Encuesta1",
+            "itempreguntas": [{
+                    "id": "true",
+                    "idpregunta": "pregunta4",
+                    "seleccionado": false,
+                    "valor": "Verdadero"
+                },
+                {
+                    "id": "false",
+                    "idpregunta": "pregunta4",
+                    "seleccionado": false,
+                    "valor": "False"
+                }
+            ],
+            "metadata": {
+                "id": "radio",
+                "tipo": "RadioButton"
+            },
+            "pregunta": "Seleccione la opcion que considere correcta",
+            "requerido": true
+        },
+        {
+            "id": "pregunta5",
+            "idEncuesta": "Encuesta1",
+            "itempreguntas": [{
+                    "id": "futbol",
+                    "idpregunta": "pregunta5",
+                    "seleccionado": false,
+                    "valor": "Futbol"
+                },
+                {
+                    "id": "tennis",
+                    "idpregunta": "pregunta5",
+                    "seleccionado": false,
+                    "valor": "Tennis"
+                },
+                {
+                    "id": "boxeo",
+                    "idpregunta": "pregunta5",
+                    "seleccionado": false,
+                    "valor": "Boxeo"
+                },
+                {
+                    "id": "golf",
+                    "idpregunta": "pregunta5",
+                    "seleccionado": false,
+                    "valor": "Golf"
+                }
+            ],
+            "metadata": {
+                "id": "checkbox",
+                "tipo": "CheckBox"
+            },
+            "pregunta": "Seleccione basado en sus gustos",
+            "requerido": true
+        }
+    ],
+    "titulo": "Encuesta De Satisfaccion"
+}

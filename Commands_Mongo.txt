@@ -1,0 +1,100 @@
+Mostrar bases de datos
+	show databases;
+
+Usar una db
+	use nombre_db;
+
+Mostrar Colecciones de una db
+	show collections;
+
+Estructura de un documento
+	var usuario = {String:"Juan", numero:22, real:22.5, flotante:true, fecha:new Date() }
+
+Crear coleccion sino existe e insertar el documento usuario
+	db.usuarios.insert(usuario);
+
+Consultar documentos de una coleccion
+	db.usuarios.find()
+
+Estructura de los documentos de la coleccion usuarios
+	{ "_id" : ObjectId("58f16d14a90b9e2b868aa5bf"), "nombre" : "Juan", "edad" : 28 }
+	{ "_id" : ObjectId("58f16ee5a90b9e2b868aa5c0"), "nombre" : "Otro" }
+
+Buscar un elemeto de la coleccion (limit o top en relacional)
+	db.usuarios.findOne();
+
+Asignacion de un documento a una variable
+	var test = db.usuarios.findOne();
+
+Busqueda de un documento con un where 
+	db.usuarios.find({nombre:"Otro"});
+
+Busqueda con mas de un filtro 
+	db.usuarios.find({nombre:"Juan", edad:28});
+
+Busqueda con filtros negados
+	db.usuarios.find({nombre:{$ne:"Juan"}});
+
+Insercion de varios documentos al tiempo
+	db.usuarios.insert([uno, dos]);
+
+Busqueda de un documento con parametros
+ 	db.usuarios.findOne({nombre:"Otro"});
+
+Busqueda de todos los elementos de una coleccion y mostrando solo un campo en el resultado
+	db.libros.find({}, {nombre:1})
+
+Busqueda de los registros mostrando nombre y el campo _id no
+	db.libros.find({}, {nombre:1, _id:0})
+
+Busqueda de documentos tomando los operadores mayor que
+	db.libros.find({primera_edicion:{$gt:1950}}, {nombre:1, _id:0})
+
+Busqueda de documentos utilizando un between de la primera_edicion
+	db.libros.find({primera_edicion:{$gt:1950, $lt:1960}}, {nombre:1, _id:0, primera_edicion:1})
+
+Actualiza (si tiene campo _id) o crea un documento (no tiene campo _id) si no existe
+	db.usuarios.save(test);
+
+Actualiza un documento mediante otro siempre y cuando se tengan los mismo _id en los documentos
+	 db.usuarios.update({"nombre" : "Juan"}, test);
+
+Actualiza solo el primer registro que coincida con el where
+	db.usuarios.update({"nombre" : "Test Uno"}, {$set : {nombre:"CF"}})
+
+Actualiza todos los registros que coincidan con el where
+	db.usuarios.update({"nombre" : "Test Uno"}, {$set : {nombre:"CF"}}, {multi:true});
+
+Actualiza todos los registros que coincidan con el where y adiciona los campos que no existan al documento
+	db.usuarios.update({"nombre" : "CF"}, {$set : {nombre:"CF Dos", edad:27, example:"Example"}}, {multi:true});
+
+Actualiza todos los registros 
+	db.usuarios.update({}, {$set : {example:99}}, {multi:true});
+
+Elimina el campo de todos los registros
+ 	db.usuarios.update({}, {$unset : {example:99}}, {multi:true});
+
+Elimina los registros que coincidan con la condicion
+	db.usuarios.remove({nombre:"CF Dos"});
+	db.usuarios.remove({});
+
+Eliminar Coleccion
+	db.usuarios.drop();
+
+Eliminar db 
+	db.dropDatabase();
+
+Operadores:
+	$gt		>		greater than
+	$gte	>=		greater than equals
+	$lt		<		less than
+	$lte	<=		less than equals
+
+Insercion mediante ciclos
+ 	for(i=0; i<100; i++){db.test.insert({valor:i})}
+
+Definicon de un cursor el cual solo se puede utilizar una vez despues se vacian
+	var cursor = db.test.find();
+
+Recorrer un cursor mediante un foreach
+	cursor.forEach(function(item){ print(item)});
